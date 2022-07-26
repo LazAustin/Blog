@@ -27,5 +27,6 @@
   "repository": {
     "type": "git",
     "url": "yes"
-  }
+  },
+  "proxy": "http://localhost:5000"
 }
