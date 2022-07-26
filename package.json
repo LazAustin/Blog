@@ -27,6 +27,5 @@
   "repository": {
     "type": "git",
     "url": "yes"
-  },
-  "proxy": "http://localhost:3000/api"
+  }
 }
