@@ -20,6 +20,7 @@
     "start": "nodemon server.js",
     "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
+  "proxy": "http://localhost:3000",
   "author": "Laz Austin",
   "license": "ISC",
   "description": "This is my blog. The UI still needs some work, but it is almost 100% functional. It's got a login/register system and a built-in CMS to write, edit, and delete posts and users' own profiles. Visitors can also filter posts by user or category, although the category system needs to be added to the front end. Routes are also protected, meaning users can only edit or delete their own posts and certain buttons/pages are unavaible unless logged in.",
