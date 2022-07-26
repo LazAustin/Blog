@@ -50,31 +50,7 @@ if (process.env.NODE_ENV === "production") {
 
   app.use(express.static('client/build'))  // set static folder 
   
-  app.get('*', (req, res)=> {     
-    res.sendFile(path.resolve(__dirname, 'client', 'build',         
-                  'index.html' )); 
-  })
-  app.get('/', (req, res)=> {     
-    res.sendFile(path.resolve(__dirname, 'client', 'build',         
-                  'index.html' )); 
-  })
-  app.get('/login', (req, res)=> {     
-    res.sendFile(path.resolve(__dirname, 'client', 'build',         
-                  'index.html' )); 
-  })
-  app.get('/register', (req, res)=> {     
-    res.sendFile(path.resolve(__dirname, 'client', 'build',         
-                  'index.html' )); 
-  })
-  app.get('/write', (req, res)=> {     
-    res.sendFile(path.resolve(__dirname, 'client', 'build',         
-                  'index.html' )); 
-  })
-  app.get('/settings', (req, res)=> {     
-    res.sendFile(path.resolve(__dirname, 'client', 'build',         
-                  'index.html' )); 
-  })
-  app.get('/post/:postId', (req, res)=> {     
+  app.get('/*', (req, res)=> {     
     res.sendFile(path.resolve(__dirname, 'client', 'build',         
                   'index.html' )); 
   })
