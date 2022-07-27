@@ -18,7 +18,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const getCats = async () => {
-      const res = await axios.get("/categories");
+      const res = await axios.get("/api/categories");
       setCats(res.data);
     };
     getCats();

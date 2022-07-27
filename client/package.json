@@ -49,5 +49,6 @@
     "url": "yes"
   },
   "author": "Laz Austin",
-  "license": "ISC"
+  "license": "ISC",
+  "proxy": "http://localhost:5000"
 }
