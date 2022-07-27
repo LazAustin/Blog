@@ -1,5 +1,4 @@
 const express = require("express");
-
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const authRoute = require("./routes/auth");
@@ -50,7 +49,7 @@ if (process.env.NODE_ENV === "production") {
 
   app.use(express.static('client/build'))  // set static folder 
   
-  app.get('/*', (req, res)=> {     
+  app.get('*', (req, res)=> {     
     res.sendFile(path.resolve(__dirname, 'client', 'build',         
                   'index.html' )); 
   })
