@@ -17,7 +17,7 @@ export default function Register() {
         email,
         password,
       });
-      res.data && window.location.replace("/login");
+      res.data && window.location.replace("/api/login");
       console.log("handleSubmit issue", res.data);
     } catch (err) {
       setError(true)
