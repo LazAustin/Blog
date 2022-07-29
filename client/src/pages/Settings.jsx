@@ -22,18 +22,18 @@ export default function Settings() {
       email,
       password,
     };
-    if (file) {
-      const data = new FormData();
-      const filename = Date.now() + file.name;
-      data.append("name", filename);
-      data.append("file", file);
-      updatedUser.profilePic = filename;
-      try {
-        await axios.post("/upload", data);
-      } catch (err) {}
-    }
+    // if (file) {
+    //   const data = new FormData();
+    //   const filename = Date.now() + file.name;
+    //   data.append("name", filename);
+    //   data.append("file", file);
+    //   updatedUser.profilePic = filename;
+    //   try {
+    //     await axios.post("http://localhost:5000/api/upload", data);
+    //   } catch (err) {}
+    // }
     try {
-      const res = await axios.put("/users/" + user._id, updatedUser);
+      const res = await axios.put("http://localhost:5000/api/users/" + user._id, updatedUser);
       setSuccess(true);
       dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
     } catch (err) {
