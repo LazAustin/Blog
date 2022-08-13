@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Post({ post }) {
   const PF = "";
   return (
-    <div className="post border-2 rounded-lg bg-white m-6 p-3">
+    <div className="post rounded-lg bg-white m-6 p-3">
       {/* {post.photo && <img className="postImg" src={PF + post.photo} alt="" />} */}
       <div className="postInfo flex flex-col">
         <div className="postCats">
@@ -11,7 +11,7 @@ export default function Post({ post }) {
             <span className="postCat">{c.name}</span>
           ))}
         </div>
-        <Link to={`/post/${post._id}`} className="link border-b-2 border-blue-800">
+        <Link to={`/post/${post._id}`} className="link border-b border-yellow-400">
           <span className="postTitle font-semibold text-2xl ">{post.title}</span>
         </Link>
         <hr></hr>
