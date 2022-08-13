@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 .hamburger {
     cursor: pointer;
     width: 24px;

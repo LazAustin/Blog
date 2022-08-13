@@ -11,8 +11,8 @@ export default function Post({ post }) {
             <span className="postCat">{c.name}</span>
           ))}
         </div>
-        <Link to={`/post/${post._id}`} className="link">
-          <span className="postTitle font-semibold text-2xl">{post.title}</span>
+        <Link to={`/post/${post._id}`} className="link border-b-2 border-blue-800">
+          <span className="postTitle font-semibold text-2xl ">{post.title}</span>
         </Link>
         <hr></hr>
         <div className="flex justify-between">

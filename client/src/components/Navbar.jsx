@@ -26,9 +26,10 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="relative container mx-auto mt-3">
+      <div className="bg-yellow-400 border-b-4 border-blue-800">
+      <nav className="relative container mx-auto">
         {/* Flex Container */}
-        <div className="flex justify-between items-center bg-yellow-400">
+        <div className="flex justify-between items-center "> {/* bg-yellow-400 ?*/}
           {/* Logo */}
           <div className="pt-2 ml-3">
             <img src={logo} alt="" className="h-20" />          
@@ -42,8 +43,8 @@ export default function Navbar() {
             <Link to="/write" className={`hover:text-blue-900 font-bold ${!user ? "hidden" : ""}`}>Write</Link>
           </div>
           <div className="hidden md:flex text-white m-3 space-x-2">
-            <Link to="/login" className={` rounded-full baseline p-3 mx- pt-2  font-bold ${user ? "hidden" : ""}`}>Login</Link>
-            <Link to="/register" className={` rounded-full baseline p-3 mx- pt-2  font-bold ${user ? "hidden" : ""}`}>Register</Link>
+            <Link to="/login" className={` rounded-full baseline p-3 mx- pt-2  font-bold bg-blue-800 ${user ? "hidden" : ""}`}>Login</Link>
+            <Link to="/register" className={` rounded-full baseline p-3 mx- pt-2  font-bold bg-blue-800 ${user ? "hidden" : ""}`}>Register</Link>
             <button onClick={handleLogout} className={` rounded-full baseline p-3 mx-3 pt-2 bg-blue-900 font-bold ${!user ? "hidden" : ""}`}>Logout</button>
           </div>
         {/* Hamburger Icon */}
@@ -67,8 +68,9 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
+      </div>
         {/* Category Menu */}
-      <nav className="container w-full flex justify-between space-x-6 mx-auto px-auto border-b border-blue-800 bg-gray-200 py-2">
+      <nav className="container w-full flex justify-between space-x-6 mx-auto px-auto py-2"> {/* bg-gray-200 */}
         <div className="hidden md:flex w-full justify-between mx-auto">
           {cats.map((category) => (
             <div className="flex justify-between mx-auto items-center">

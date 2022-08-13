@@ -19,7 +19,7 @@ function App() {
   return (
     <Router>
         <Navbar />
-      <div className="container flex flex-row relative bg-gray-50 rounded-sm mx-auto">
+      <div className="container flex flex-row relative  rounded-sm mx-auto"> {/* bg-gray-50 */}
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/login" element={user ? <Home /> : <Login /> }/>

@@ -20,8 +20,8 @@ export default function Home() {
 
   return (
     <>
-      <div className="flex flex-col mx-auto rounded-sm bg-yellow-400 w-full px-6 pt-12">
-            <Posts posts={posts} className="border-3 border-black"/>
+      <div className="flex flex-col mx-auto rounded-sm  w-full px-6 pt-12"> {/* bg-yellow-400 */}
+            <Posts posts={posts} className="border-3 "/> {/* border-black */}
       </div>
     </>
   )
