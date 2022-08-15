@@ -19,12 +19,13 @@ function App() {
   return (
     <Router>
         <Navbar />
-      <div className="container flex flex-row relative  rounded-sm mx-auto"> {/* bg-gray-50 */}
+      <div className="container flex flex-row relative  rounded-sm mx-auto "> {/* bg-gray-50 */}
         <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/login" element={user ? <Home /> : <Login /> }/>
           <Route path="/register" element={user ? <Home /> : <Register />}/>
-          <Route path="/write" element={user ? <Write /> : <Register />}/>
+          {/* <Route path="/write" element={user ? <Write /> : <Register />}/> */}
+          <Route path="/write" element={<Write />}/>
           <Route path="/settings" element={user ? <Settings /> : <Register />}/>
           <Route path="/post/:postId" element={<Single />}/>
         </Routes>

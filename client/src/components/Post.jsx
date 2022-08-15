@@ -11,10 +11,10 @@ export default function Post({ post }) {
             <span className="postCat">{c.name}</span>
           ))}
         </div>
-        <Link to={`/post/${post._id}`} className="link border-b border-yellow-400">
+        <Link to={`/post/${post._id}`} className="link">
           <span className="postTitle font-semibold text-2xl ">{post.title}</span>
         </Link>
-        <hr></hr>
+        {/* <hr></hr> */}
         <div className="flex justify-between">
           <span className="postDate text-gray-500 w-1/3">
             {new Date(post.createdAt).toDateString()}

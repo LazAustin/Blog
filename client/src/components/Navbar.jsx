@@ -14,6 +14,9 @@ export default function Navbar() {
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
+    if (isOpen) {
+      toggle();
+    }
   };
 
   useEffect(() => {
@@ -26,7 +29,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="bg-yellow-400 border-b-4 border-blue-800">
+      <div className=" border-b-4 border-yellow-400"> {/*bg-yellow-400*/}
       <nav className="relative container mx-auto">
         {/* Flex Container */}
         <div className="flex justify-between items-center "> {/* bg-yellow-400 ?*/}
@@ -43,8 +46,8 @@ export default function Navbar() {
             <Link to="/write" className={`hover:text-blue-900 font-bold ${!user ? "hidden" : ""}`}>Write</Link>
           </div>
           <div className="hidden md:flex text-white m-3 space-x-2">
-            <Link to="/login" className={` rounded-full baseline p-3 mx- pt-2  font-bold bg-blue-800 ${user ? "hidden" : ""}`}>Login</Link>
-            <Link to="/register" className={` rounded-full baseline p-3 mx- pt-2  font-bold bg-blue-800 ${user ? "hidden" : ""}`}>Register</Link>
+            <Link to="/login" className={` rounded-full baseline p-3 mx- pt-2  font-bold bg-blue-900 ${user ? "hidden" : ""}`}>Login</Link>
+            <Link to="/register" className={` rounded-full baseline p-3 mx- pt-2  font-bold bg-blue-900 ${user ? "hidden" : ""}`}>Register</Link>
             <button onClick={handleLogout} className={` rounded-full baseline p-3 mx-3 pt-2 bg-blue-900 font-bold ${!user ? "hidden" : ""}`}>Logout</button>
           </div>
         {/* Hamburger Icon */}
@@ -57,13 +60,13 @@ export default function Navbar() {
         {/* Mobile Menu */}
         <div className="md:hidden">
           <div id='menu' className={`absolute flex-col items-center self-end py-8 mt-10 space-y-6 font-bold bg-yellow-500 rounded-xl ${isOpen ? "flex" : "hidden"} sm:w-auto sm:self-center left-6 right-6 drop-shadow-md z-10`}>
-            <Link to="/" className="hover:text-blue-900 font-bold">Home</Link>
-            <Link to="#" className="hover:text-blue-900 font-bold">About</Link>
-            <Link to="#" className="hover:text-blue-900 font-bold">Contact</Link>
-            <Link to="/settings" className="hover:text-blue-900 font-bold">Settings</Link>
-            <Link to="/write" className={`hover:text-blue-900 font-bold ${!user ? "hidden" : ""}`}>Write</Link>
-            <Link to="/login" className={` rounded-xl baseline p-3 mx- pt-2 text-white  font-bold ${user ? "hidden" : ""}`}>Login</Link>
-            <Link to="/register" className={` rounded-xl baseline p-3 mx- pt-2 text-white font-bold first-line:${user ? "hidden" : ""}`}>Register</Link>
+            <Link to="/" onClick={toggle} className="hover:text-blue-900 font-bold">Home</Link>
+            <Link to="#" onClick={toggle} className="hover:text-blue-900 font-bold">About</Link>
+            <Link to="#" onClick={toggle} className="hover:text-blue-900 font-bold">Contact</Link>
+            <Link to="/settings" onClick={toggle} className="hover:text-blue-900 font-bold">Settings</Link>
+            <Link to="/write" onClick={toggle} className={`hover:text-blue-900 font-bold ${!user ? "hidden" : ""}`}>Write</Link>
+            <Link to="/login" onClick={toggle} className={` rounded-xl baseline p-3 mx- pt-2 text-white  font-bold ${user ? "hidden" : ""}`}>Login</Link>
+            <Link to="/register" onClick={toggle} className={` rounded-xl baseline p-3 mx- pt-2 text-white font-bold first-line:${user ? "hidden" : ""}`}>Register</Link>
             <button onClick={handleLogout} className= {`rounded-xl baseline p-3 mx-3 pt-2 text-white font-bold ${!user ? "hidden" : ""}`}>Logout</button>
           </div>
         </div>
@@ -74,11 +77,11 @@ export default function Navbar() {
         <div className="hidden md:flex w-full justify-between mx-auto">
           {cats.map((category) => (
             <div className="flex justify-between mx-auto items-center">
-            <Link to={`/?cat=${category.name}`} key={category._id} className="p-1">
-              <div  className="flex flex-row">
-                <i className="text-blue-800 font-bold">{category.name}</i>
-              </div>              
-            </Link>            
+              <Link to={`/?cat=${category.name}`} key={category._id} className="p-1">
+                <div  className="flex flex-row">
+                  <i className="text-blue-800 font-bold">{category.name}</i>
+                </div>              
+              </Link>  
             </div>
             ))}
           </div>

@@ -45,8 +45,8 @@ export default function SinglePost() {
   };
 
   return (
-    <div className="flex bg-red-50 ">
-      <div className="w-full flex flex-col space-y-3 bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-8">
+    <div className="flex">
+      <div className="w-full flex flex-col space-y-3 bg-white rounded-lg shadow-default py-10 px-8">
 
         {/* Title and edit/delete buttons */}
         <div className="">

@@ -1,12 +1,31 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import axios from "axios";
 import { Context } from "../context/Context";
 
 export default function Write() {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
-  const [file, setFile] = useState(null);
+  // const [file, setFile] = useState(null);
   const { user } = useContext(Context);
+  const [cats, setCats] = useState([]);
+  const [checked, setChecked] = useState([]);
+
+
+  useEffect(() => {
+    const getCats = async () => {
+      const res = await axios.get("/api/categories");
+      setCats(res.data);
+    };
+    getCats();
+  }, []);
+
+  const handleChecked = (e) => {
+    if (e.target.checked) {
+      setCats([...checked, {
+        name: cats.name,
+      }]);
+    }
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,41 +33,35 @@ export default function Write() {
       username: user.username,
       title,
       desc,
+      cats,
     };
-    // if (file) {
-    //   const data =new FormData();
-    //   const filename = Date.now() + file.name;
-    //   data.append("name", filename);
-    //   data.append("file", file);
-    //   newPost.photo = filename;
-    //   try {
-    //     await axios.post("/upload", data);
-    //   } catch (err) {}
-    // }
     try {
       const res = await axios.post("/api/posts", newPost);
       window.location.replace("/post/" + res.data._id);
     } catch (err) {}
   };
+
+
   return (
-    <div className="w-full flex m-auto bg-red-50">
-      <div className="w-full bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-8 m-8">
-      {file && (
+    <div className="w-full flex mx-auto">
+      <div className="w-full bg-white rounded-md border border-primaryBorder shadow-default py-10 px-8 m-8">
+      {/* {file && (
         <img className="" src={URL.createObjectURL(file)} alt="" />
-      )}
+      )} */}
       <form className="flex flex-col space-y-3" onSubmit={handleSubmit}>
+        <div className="flex justify-between">
+          {cats.map((category, index) => (
+            <div>
+              <input key={index} type="checkbox" value={cats} onChanged={e => handleChecked(e.target.value)}/>
+              <label> {category.name}</label>
+            </div>
+          ))} 
+          
+        </div>
         <div className="">
-          <label htmlFor="" className="flex items-center">
-            <i className="fas fa-plus bg-blue-500 rounded-full m-3 p-3"></i>
-            <span>Add a Picture to your post</span>
-          </label>
+          <label htmlFor="title" className="font-bold m-1">Title</label>
           <input
-            type="file"
-            id="fileInput"
-            style={{ display: "none" }}
-            onChange={(e) => setFile(e.target.files[0])}
-          />
-          <input
+            id="title"
             type="text"
             placeholder="Title"
             className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
@@ -57,11 +70,13 @@ export default function Write() {
           />
         </div>
         <div className="">
+        <label htmlFor="content" className="font-bold m-1">Content</label>
           <textarea
-            placeholder="What's on your mind...?"
+            id="content"
+            placeholder="Copy and paste or write your post here..."
             type="text"
             className="w-full px-2 py-2 text-gray-700 border rounded-lg focus:outline-none"
-            rows="4"
+            rows="15"
             resize
             onChange={e=>setDesc(e.target.value)}
           ></textarea>

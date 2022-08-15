@@ -13,7 +13,7 @@ export default function Sidebar() {
     getCats();
   }, []);
   return (
-    <div className="hidden flex-col w-1/4 bg-white md:flex m-3 border-l-2 border-blue-800 pl-6">
+    <div className="hidden flex-col w-1/4 md:flex my-3 pl-6"> {/*border-l-2 border-blue-800*/}
 
       <div className="flex flex-col items-center p-4">
         <span className="text-center border-y-2 border-yellow-400">ABOUT ME</span>
@@ -24,9 +24,9 @@ export default function Sidebar() {
             className="rounded-full"
             />
         </div>
-          <p>
-            I am a software developer with a passion for building stuff and doing nerdy things.
-          </p>
+        <p className="text-center">
+          I am a software developer with a passion for building stuff and doing nerdy things.
+        </p>
       </div>
       <div className="flex flex-col items-center">
         <span className="text-center border-y-2 border-yellow-400">CATEGORIES</span>
@@ -38,7 +38,7 @@ export default function Sidebar() {
           ))}
         </ul>
       </div>
-      <div className="flex flex-col items-center p-4">
+      <div className="flex flex-col text-center items-center p-4">
         <span className="text-center border-y-2 border-yellow-400">FOLLOW ME</span>
         <div className="flex space-x-3 mt-2">
           <i className="fab fa-facebook-square"></i>
