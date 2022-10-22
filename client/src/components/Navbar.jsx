@@ -2,7 +2,7 @@ import { Context } from "../context/Context";
 import axios from "axios";
 import logo from "../img/lazPng1.png";
 import { useState, useContext, useEffect } from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   // const PF = "http://localhost:5000/images/"
@@ -22,7 +22,10 @@ export default function Navbar() {
   useEffect(() => {
     const getCats = async () => {
       const res = await axios.get("/api/categories");
-      setCats(res.data);
+      const sortedCats = res.data.sort((a, b) => 
+      a.name.localeCompare(b.name))
+      console.log(sortedCats)
+      setCats(sortedCats);
     };
     getCats();
   }, []);
@@ -32,16 +35,23 @@ export default function Navbar() {
       <div className=" border-b-4 border-yellow-400"> {/*bg-yellow-400*/}
       <nav className="relative container mx-auto">
         {/* Flex Container */}
-        <div className="flex justify-between items-center "> {/* bg-yellow-400 ?*/}
+        <div className="flex justify-between items-center"> {/* bg-yellow-400 ?*/}
           {/* Logo */}
-          <div className="pt-2 ml-3">
-            <img src={logo} alt="" className="h-20" />          
+          <div className="pt-2 ml-3 flex items-center space-x-5">
+            <div className="flex">
+              <Link to="/"><img src={logo} alt="" className="h-20" /></Link>
+            </div>
+            {/* <div className="flex-col">
+              <h1 className="text-xl">The Hater Aid</h1>
+              <h5 className="text-sm">Commenhatery by an everyday commenhater.</h5>  
+            </div>         */}
           </div>
           {/* Menu Items */}
+          <div className="flex items-center space-x-10">
           <div className="hidden md:flex space-x-12 text-blue-900">
             <Link to="/" className="hover:text-blue-900 font-bold">Home</Link>
-            <Link to="#" className="hover:text-blue-900 font-bold">About</Link>
-            <Link to="#" className="hover:text-blue-900 font-bold">Contact</Link>
+            <Link to="/about" className="hover:text-blue-900 font-bold">About</Link>
+            {/* <Link to="#" className="hover:text-blue-900 font-bold">Contact</Link> */}
             <Link to="/settings" className={`hover:text-blue-900 font-bold ${!user ? "hidden" : ""}`}>Settings</Link>
             <Link to="/write" className={`hover:text-blue-900 font-bold ${!user ? "hidden" : ""}`}>Write</Link>
           </div>
@@ -56,6 +66,7 @@ export default function Navbar() {
               <span className="hamburger-middle"></span>
               <span className="hamburger-bottom"></span>
           </button>
+          </div>
         </div>
         {/* Mobile Menu */}
         <div className="md:hidden">

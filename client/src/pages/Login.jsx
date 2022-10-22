@@ -25,7 +25,7 @@ export default function Login() {
   };
 
   return (
-    <div className="h-full flex m-auto "> {/*bg-red-500*/}
+    <div className="h-full flex m-auto w-full "> {/*bg-red-500*/}
       <div className="w-full max-w-md m-auto bg-white rounded-lg shadow-default py-10 px-16">
         <h1 className='text-2xl font-medium text-primary mt-4 mb-12 text-center'>
                     LOG IN {/*to your account 🔐*/}

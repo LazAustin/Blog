@@ -50,6 +50,48 @@
     transform: rotate(-45deg) translateY(6px) translate(-6px);
 }
 
-body {
-    background: #fafafa;
+.post-text {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
+
+.paginationButtons {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.paginationButtons a {
+    padding: 10px;
+    margin: 8px;
+    border-radius: 5px;
+    border: 1px solid darkBlue;
+    color: darkBlue;
+}
+
+.paginationButtons a:hover {
+    color: white;
+    background-color: darkBlue;
+}
+
+.paginationActive a {
+    color: white;
+    background-color: darkBlue;
+}
+
+body {
+    background: white;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+    color: #adb5bd;
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    pointer-events: none;
+  }

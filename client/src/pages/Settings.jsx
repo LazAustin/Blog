@@ -4,14 +4,14 @@ import axios from "axios";
 
 export default function Settings() {
 
-  const [file, setFile] = useState(null);
+  // const [file, setFile] = useState(null); // profile pic
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [success, setSuccess] = useState(false);
 
   const { user, dispatch } = useContext(Context);
-  // const PF = "http://localhost:5000/images/"
+  // const PF = "http://localhost:5000/images/" // profile pic
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,14 +42,14 @@ export default function Settings() {
   };
 
   return (
-    <div className="h-full flex mx-auto bg-red-50">
+    <div className="h-full flex mx-auto w-full rounded-lg mt-20">
       <div className="w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-16">
-        <h1 className='text-2xl font-medium text-primary mt-4 mb-12 text-center'>
+        <h1 className='text-2xl font-medium text-primary mt-2 mb-4 text-center'>
           Update Your Account
         </h1>
-        <form className="flex flex-col p-6 bg-yellow-50 border-1 rounded-xl" onSubmit={handleSubmit}>
+        <form className="flex flex-col p-6 border-1 rounded-xl" onSubmit={handleSubmit}>
           <div>
-            <div className="shrink-0 m-2 flex items-center space-x-3">
+            {/* <div className="shrink-0 m-2 flex items-center space-x-3">
               <img 
                 className="h-16 w-16 object-cover rounded-full"
                 src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80"
@@ -71,12 +71,12 @@ export default function Settings() {
                 file:bg-blue-50 file:text-blue-900
                 hover:file:bg-blue-100"
               />
-            </label>
+            </label> */}
             <label>Username</label>
             <input 
               type="text" 
               placeholder={user.username} 
-              value={user.username}
+              value={username}
               name="name" 
               className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
               onChange={(e) => setUsername(e.target.value)}
@@ -85,7 +85,7 @@ export default function Settings() {
             <input 
               type="email" 
               placeholder={user.email} 
-              value={user.email}
+              value={email}
               name="email" 
               className={`w-full p-2 text-primary border rounded-md outline-none text-sm transition duration-150 ease-in-out mb-4`}
               onChange={(e) => setEmail(e.target.value)}

@@ -1,32 +1,57 @@
 import { Link } from "react-router-dom";
+import parser from 'html-react-parser'
 
 export default function Post({ post }) {
-  const PF = "";
+
+  console.log(post);
+
+  const firstThreeSentences = post.desc.split(".", 3).join() + "...";
+
+  console.log(firstThreeSentences)
+
+  const scrollPage = () => {
+    window.scrollTo(0, 100);
+  }
+
+
   return (
-    <div className="post rounded-lg bg-white m-6 p-3">
+    <div className="rounded-lg bg-white my-6 px-8 py-3 pb-6 border shadow-xl">
       {/* {post.photo && <img className="postImg" src={PF + post.photo} alt="" />} */}
-      <div className="postInfo flex flex-col">
-        <div className="postCats">
-          {post.categories.map((c) => (
-            <span className="postCat">{c.name}</span>
-          ))}
-        </div>
-        <Link to={`/post/${post._id}`} className="link">
-          <span className="postTitle font-semibold text-2xl ">{post.title}</span>
+      <span className="flex justify-end text-blue-900 my-1">
+            Author:<Link to={`/?user=${post.username}`} className="link mx-2">
+                      <b> {post.username}</b>
+                    </Link>
+      </span>
+      <div className="flex flex-col mt-1">
+        <Link to={`/post/${post._id}`} className="object-contain" onClick={scrollPage}>
+          <div className="postTitle font-semibold text-2xl">{post.title}</div>
         </Link>
         {/* <hr></hr> */}
         <div className="flex justify-between">
           <span className="postDate text-gray-500 w-1/3">
             {new Date(post.createdAt).toDateString()}
           </span>
-          <span className="text-blue-900">
-            Author: <Link to={`/?user=${post.username}`} className="link">
-                      <b> {post.username}</b>
-                    </Link>
-          </span>
         </div>
       </div>
-      <p className="postDesc font-normal text-lg">{post.desc}</p>
+      <div className="">
+        <p className="postMirror font-normal text-lg">
+          {parser(firstThreeSentences)}
+        </p>
+      </div>
+      <div className="flex text-sm justify-between mt-5">
+            {/* <span className="font-bold mx-1 italic">
+              Categories: 
+            </span> */}
+            <div>
+              <span>Categories:</span>
+              {post.categories.sort().map((category) => 
+                <Link to={`/?cat=${category}`}><span className="mx-2 italic text-darkBlue">{category}</span></Link>
+              )}
+            </div>
+            <Link to={`/post/${post._id}`}>
+            <span className="flex text-darkBlue justify-end">Read more</span>
+            </Link>
+      </div>
     </div>
   );
-}
+};
