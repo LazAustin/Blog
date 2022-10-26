@@ -41,7 +41,7 @@ export default function Navbar() {
             <div className="hidden sm:flex">
               <Link to="/"><img src={logo} alt="" className="h-20" /></Link>
             </div>
-            <div className="text-2xl font-mono mb-4">
+            <div className="text-2xl font-mono mb-4 mt-3">
               The<span class=" ml-3 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-yellow-400 relative inline-block">
                     <span class="relative text-blue-900">Commenhater</span>
                   </span>
