@@ -32,7 +32,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="border-b-4 border-yellow-400 bg-blue-900 text-white"> {/*bg-yellow-400*/}
+      <div className="pb-2  bg-gradient-to-l from-blue-900 to-blue-700 text-white"> {/*bg-yellow-400*/}
       <nav className="relative container mx-auto">
         {/* Flex Container */}
         <div className="flex justify-between items-center"> {/* bg-yellow-400 ?*/}
@@ -42,7 +42,7 @@ export default function Navbar() {
               <Link to="/"><img src={logo} alt="" className="h-20" /></Link>
             </div>
             <div className="text-2xl font-mono">
-              The<span class=" ml-2 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-yellow-400 relative inline-block">
+              The<span class=" ml-3 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-yellow-400 relative inline-block">
                     <span class="relative text-blue-900">Commenhater</span>
                   </span>
             </div>
@@ -62,7 +62,7 @@ export default function Navbar() {
           </div>
           <div className="hidden md:flex text-white m-3 space-x-2">
             <Link to="/login" className={` rounded-full baseline p-3 mx- pt-2  font-bold bg-yellow-400 text-blue-900 ${user ? "hidden" : ""}`}>Login</Link>
-            <Link to="/register" className={` rounded-full baseline p-3 mx- pt-2  font-bold bg-yellow-400 text-blue-900 ${user ? "hidden" : ""}`}>Register</Link>
+            <Link to="/register" className={` rounded-full baseline p-3 mx- pt-2  font-bold bg-red-800 text-white ${user ? "hidden" : ""}`}>Register</Link>
             <button onClick={handleLogout} className={` rounded-full baseline p-3 mx-3 pt-2 bg-yellow-400 text-blue-900 font-bold ${!user ? "hidden" : ""}`}>Logout</button>
           </div>
         {/* Hamburger Icon */}
@@ -89,10 +89,11 @@ export default function Navbar() {
       </nav>
       </div>
         {/* Category Menu */}
-      <nav className="container w-full flex justify-between space-x-6 mx-auto px-auto py-2"> {/* bg-gray-200 */}
+      <div className="bg-yellow-400">
+      <nav className="container w-full flex justify-between space-x-6 mx-auto"> {/* bg-gray-200 */}
         <div className="hidden md:flex w-full justify-between mx-auto">
           {cats.map((category) => (
-            <div className="flex justify-between mx-auto items-center">
+            <div className="flex justify-between items-center my-3">
               <Link to={`/?cat=${category.name}`} key={category._id} className="p-1">
                 <div  className="flex flex-row">
                   <i className="text-blue-800 font-bold">{category.name}</i>
@@ -102,7 +103,7 @@ export default function Navbar() {
             ))}
           </div>
       </nav> 
-       
+      </div> 
     </>
   );
 }

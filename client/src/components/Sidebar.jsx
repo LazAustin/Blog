@@ -21,11 +21,11 @@ export default function Sidebar() {
 
       <div className="flex flex-col items-center p-4">
         <span className="text-center border-y-2 border-yellow-400">ABOUT ME</span>
-        <div className="my-2">
-            <img
+        <div className="my-2 ">
+          <img
             src={require("../img/lazProf.jpg")}
             alt=""
-            className="rounded-full w-3/4 mx-auto"
+            className="rounded-full w-3/4 mx-auto my-3 shadow-lg "
             />
         </div>
         <p className="text-center">

@@ -46,7 +46,7 @@ export default function Footer(second) {
       }, []);
 
     return (
-        <div className="border-t-4 border-yellow-400 mt-10 bg-blue-900">
+        <div className="border-t-4 border-yellow-400 mt-10 bg-gradient-to-l from-blue-900 to-blue-700">
             <div className="container mx-auto">
                 <div className="pt-2 mt-2 flex">
                     <div  className=" max-w-[15%] my-auto"><img src={logo2} alt="" className=""/></div>

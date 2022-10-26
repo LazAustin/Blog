@@ -16,8 +16,8 @@ export default function Posts({ posts }) {
 
   return (
     <div className="container flex flex-col h-full justify-between">
-      <div className="my-10 text-2xl font-serif ">Welcome to my blog! This is where I post all my commenhatery. Feel free to drink the haterade.</div>
-      <div class="bg-blue-200 border-t border-b border-darkBlue text-blue-700 px-4 py-3 mx-10 mb-10" role="alert">
+      <div className="my-10 text-2xl font-serif ">Welcome to my blog! Check out my commenhatery and try the haterade while here.</div>
+      <div class="bg-blue-200 border border-darkBlue text-blue-700 px-4 py-3 mx-10 mb-10" role="alert">
         <p class="font-bold">Under Construction</p>
         <p class="text-sm">This site is fully functional but brand new and might undergo significant changes.</p>
         <br/>
@@ -25,7 +25,7 @@ export default function Posts({ posts }) {
         <p class="text-sm">If you are here to check out my work, feel free to sign in and out or play around (test account: "employer" pass: "Pword")</p>
       </div>
       <div className="">
-        <h1 className="flex justify-center text-blue-900 text-2xl font-bold font-serif align-top">Blog Posts</h1>
+        <h1 className="flex justify-center text-blue-900 text-2xl font-bold font-serif align-top">Posts</h1>
         <div className="posts">
           {posts.sort( (a,b) => {return new Date(b.createdAt) - new Date(a.createdAt);}).slice(pagesVisited, pagesVisited + postsPerPage).map((p) => (
               <Post key={p._id} post={p}/>

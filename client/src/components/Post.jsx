@@ -15,20 +15,20 @@ export default function Post({ post }) {
 
 
   return (
-    <div className="rounded-lg bg-white my-6 px-8 py-3 pb-6 border shadow-xl">
+    <div className="rounded-lg bg-white my-6 px-8 py-3 pb-6 border shadow shadow-yellow-400/25">
       {/* {post.photo && <img className="postImg" src={PF + post.photo} alt="" />} */}
       <span className="flex justify-end text-blue-900 my-1">
-            Author:<Link to={`/?user=${post.username}`} className="link mx-2">
+            Author:<Link to={`/?user=${post.username}`} className="link mx-2 text-blue-800">
                       <b> {post.username}</b>
                     </Link>
       </span>
       <div className="flex flex-col mt-1">
         <Link to={`/post/${post._id}`} className="object-contain" onClick={scrollPage}>
-          <div className="postTitle font-semibold text-2xl">{post.title}</div>
+          <div className="postTitle font-semibold text-2xl text-blue-900 mb-2 font-serif">{post.title}</div>
         </Link>
         {/* <hr></hr> */}
         <div className="flex justify-between">
-          <span className="postDate text-gray-500 w-1/3">
+          <span className="postDate text-yellow-400 w-1/3 mb-2">
             {new Date(post.createdAt).toDateString()}
           </span>
         </div>
@@ -43,13 +43,13 @@ export default function Post({ post }) {
               Categories: 
             </span> */}
             <div>
-              <span>Categories:</span>
+              <span className="text-blue-900 font-semibold">Categories:</span>
               {post.categories.sort().map((category) => 
-                <Link to={`/?cat=${category}`}><span className="mx-2 italic text-darkBlue">{category}</span></Link>
+                <Link to={`/?cat=${category}`}><span className="mx-2 italic text-red-800">{category}</span></Link>
               )}
             </div>
             <Link to={`/post/${post._id}`}>
-            <span className="flex text-darkBlue justify-end">Read more</span>
+            <span className="flex text-blue-900 text-lg font-semibold justify-end">Read more</span>
             </Link>
       </div>
     </div>
