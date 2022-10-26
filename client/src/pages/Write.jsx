@@ -62,7 +62,7 @@ export default function Write() {
         <img className="" src={URL.createObjectURL(file)} alt="" />
       )} */}
       <form className="flex flex-col space-y-3" onSubmit={handleSubmit}>
-        <div className="flex-wrap justify-between m-2">
+        <div className="flex flex-wrap justify-between m-2">
           {categories.map((category, index) => (
             <div>
               <input key={index} type="checkbox" value={category.name} onChange={handleCheck} />
@@ -99,7 +99,7 @@ export default function Write() {
         </div>
         <div className='flex justify-center items-center mt-6'>
           <button 
-            className={`bg-blue-500 py-2 px-4 w-1/2 text-white text-md rounded border border-yellow-200 focus:outline-none focus:border-darkBlue`} 
+            className={`bg-red-800 py-2 px-4 w-1/2 text-white text-md rounded border border-yellow-200 focus:outline-none focus:border-darkBlue`} 
             type="submit"
             >
               Publish

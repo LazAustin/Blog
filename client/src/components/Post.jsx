@@ -42,7 +42,7 @@ export default function Post({ post }) {
             {/* <span className="font-bold mx-1 italic">
               Categories: 
             </span> */}
-            <div>
+            <div className="flex flex-wrap mr-2">
               <span className="text-blue-900 font-semibold">Categories:</span>
               {post.categories.sort().map((category) => 
                 <Link to={`/?cat=${category}`}><span className="mx-2 italic text-red-800">{category}</span></Link>

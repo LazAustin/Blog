@@ -49,10 +49,10 @@ export default function Footer(second) {
         <div className="border-t-4 border-yellow-400 mt-10 bg-gradient-to-l from-blue-900 to-blue-700">
             <div className="container mx-auto">
                 <div className="pt-2 mt-2 flex">
-                    <div  className=" max-w-[15%] my-auto"><img src={logo2} alt="" className=""/></div>
+                    <div  className="hidden md:block max-w-[15%] my-auto"><img src={logo2} alt="" className=""/></div>
                     <div className="container flex-col mx-12">
-                        <div className="container flex justify-around my-auto py-2">
-                            <div className="flex flex-col text-white">        
+                        <div className="container flex flex-wrap justify-around my-auto py-2">
+                            <div className="flex flex-col text-white m-2">        
                                 <div className="underline font-bold italic text-yellow-400">MENU</div>
                                 <Link to="/"><ul>Home</ul></Link>
                                 <Link to="/about"><ul>About</ul></Link>
@@ -60,14 +60,14 @@ export default function Footer(second) {
                                 {!user && <Link to="/login"><ul>Login</ul></Link>}
                                 {!user && <Link to="/register"><ul>Register</ul></Link>}
                             </div>
-                            <div className="flex flex-col text-white">
+                            <div className="flex flex-col text-white m-2">
                                 <div className="underline font-bold italic text-yellow-400">AFFILLIATED LINKS</div>
                                     <a href="https://lazthedev.com"><ul>Laz's Portfolio Website</ul></a>
                                     <a href="https://github.com/lazaustin"><ul>Github</ul></a>
                                     <a href="https://stackoverflow.com/users/12333367/laz-austin"><ul>Stack Overflow</ul></a>
                                     <a href="https://www.linkedin.com/in/lazaustin/"><ul>LinkedIn</ul></a>
                             </div>
-                            <div className="flex flex-col text-white">
+                            <div className="flex flex-col text-white m-2">
                                 <div className="underline font-bold italic text-yellow-400">CATEGORIES</div>
                                 {cats.map((category) => (
                                     <Link to={`/?cat=${category.name}`} key={category._id} className="">
@@ -77,9 +77,9 @@ export default function Footer(second) {
                             </div>
                         </div>
                         <div className="px-20">
-                            <div className="flex text-white">
-                                <h1 className="text-xl font-bold mx-2 mt-6">Need to contact me?</h1>
-                                <p className="mt-7">Send me an email below.</p>
+                            <div className="flex flex-wrap text-white">
+                                <h1 className="text-xl font-bold mt-6">Need to contact me?</h1>
+                                <p className="mt-2 mx-0 md:mt-7 md:mx-2">Send me an email below.</p>
                             
                             </div>
                             <form className="flex flex-col" ref={formRef} onSubmit={handleSubmit}>

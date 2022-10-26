@@ -32,16 +32,16 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="pb-2  bg-gradient-to-l from-blue-900 to-blue-700 text-white"> {/*bg-yellow-400*/}
+      <div className="pb-2 bg-gradient-to-l from-blue-900 to-blue-700 text-white pr-5"> {/*bg-yellow-400*/}
       <nav className="relative container mx-auto">
         {/* Flex Container */}
         <div className="flex justify-between items-center"> {/* bg-yellow-400 ?*/}
           {/* Logo */}
           <div className="pt-2 ml-3 flex items-center space-x-5">
-            <div className="flex">
+            <div className="hidden sm:flex">
               <Link to="/"><img src={logo} alt="" className="h-20" /></Link>
             </div>
-            <div className="text-2xl font-mono">
+            <div className="text-2xl font-mono mb-4">
               The<span class=" ml-3 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-yellow-400 relative inline-block">
                     <span class="relative text-blue-900">Commenhater</span>
                   </span>
