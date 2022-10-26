@@ -32,7 +32,7 @@ export default function Navbar() {
 
   return (
     <>
-      <div className=" border-b-4 border-yellow-400"> {/*bg-yellow-400*/}
+      <div className="border-b-4 border-yellow-400 bg-blue-900 text-white"> {/*bg-yellow-400*/}
       <nav className="relative container mx-auto">
         {/* Flex Container */}
         <div className="flex justify-between items-center"> {/* bg-yellow-400 ?*/}
@@ -41,6 +41,11 @@ export default function Navbar() {
             <div className="flex">
               <Link to="/"><img src={logo} alt="" className="h-20" /></Link>
             </div>
+            <div className="text-2xl font-mono">
+              The<span class=" ml-2 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-yellow-400 relative inline-block">
+                    <span class="relative text-blue-900">Commenhater</span>
+                  </span>
+            </div>
             {/* <div className="flex-col">
               <h1 className="text-xl">The Hater Aid</h1>
               <h5 className="text-sm">Commenhatery by an everyday commenhater.</h5>  
@@ -48,17 +53,17 @@ export default function Navbar() {
           </div>
           {/* Menu Items */}
           <div className="flex items-center space-x-10">
-          <div className="hidden md:flex space-x-12 text-blue-900">
-            <Link to="/" className="hover:text-blue-900 font-bold">Home</Link>
-            <Link to="/about" className="hover:text-blue-900 font-bold">About</Link>
+          <div className="hidden md:flex space-x-12">
+            <Link to="/" className="hover:text-yellow-400 font-bold">Home</Link>
+            <Link to="/about" className="hover:text-yellow-400 font-bold">About</Link>
             {/* <Link to="#" className="hover:text-blue-900 font-bold">Contact</Link> */}
-            <Link to="/settings" className={`hover:text-blue-900 font-bold ${!user ? "hidden" : ""}`}>Settings</Link>
-            <Link to="/write" className={`hover:text-blue-900 font-bold ${!user ? "hidden" : ""}`}>Write</Link>
+            <Link to="/settings" className={`hover:text-yellow-400 font-bold ${!user ? "hidden" : ""}`}>Settings</Link>
+            <Link to="/write" className={`hover:text-yellow-400 font-bold ${!user ? "hidden" : ""}`}>Write</Link>
           </div>
           <div className="hidden md:flex text-white m-3 space-x-2">
-            <Link to="/login" className={` rounded-full baseline p-3 mx- pt-2  font-bold bg-blue-900 ${user ? "hidden" : ""}`}>Login</Link>
-            <Link to="/register" className={` rounded-full baseline p-3 mx- pt-2  font-bold bg-blue-900 ${user ? "hidden" : ""}`}>Register</Link>
-            <button onClick={handleLogout} className={` rounded-full baseline p-3 mx-3 pt-2 bg-blue-900 font-bold ${!user ? "hidden" : ""}`}>Logout</button>
+            <Link to="/login" className={` rounded-full baseline p-3 mx- pt-2  font-bold bg-yellow-400 text-blue-900 ${user ? "hidden" : ""}`}>Login</Link>
+            <Link to="/register" className={` rounded-full baseline p-3 mx- pt-2  font-bold bg-yellow-400 text-blue-900 ${user ? "hidden" : ""}`}>Register</Link>
+            <button onClick={handleLogout} className={` rounded-full baseline p-3 mx-3 pt-2 bg-yellow-400 text-blue-900 font-bold ${!user ? "hidden" : ""}`}>Logout</button>
           </div>
         {/* Hamburger Icon */}
           <button id="menu-btn" className={`block hamburger md:hidden focus:outline-none m-6 mb-3 ${isOpen ? "open" : ""}`} onClick={toggle}>

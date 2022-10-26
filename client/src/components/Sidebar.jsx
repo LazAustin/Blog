@@ -17,7 +17,7 @@ export default function Sidebar() {
     getCats();
   }, []);
   return (
-    <div className="flex-col w-1/4 hidden md:flex my-3"> {/*border-l-2 border-blue-800*/}
+    <div className="flex-col w-1/4 hidden md:flex my-3 ml-10"> {/*border-l-2 border-blue-800*/}
 
       <div className="flex flex-col items-center p-4">
         <span className="text-center border-y-2 border-yellow-400">ABOUT ME</span>
@@ -25,7 +25,7 @@ export default function Sidebar() {
             <img
             src={require("../img/lazProf.jpg")}
             alt=""
-            className="rounded-full"
+            className="rounded-full w-3/4 mx-auto"
             />
         </div>
         <p className="text-center">

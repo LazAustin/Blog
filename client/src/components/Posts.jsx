@@ -16,6 +16,7 @@ export default function Posts({ posts }) {
 
   return (
     <div className="container flex flex-col h-full justify-between">
+      <div className="my-10 text-2xl font-serif ">Welcome to my blog! This is where I post all my commenhatery. Feel free to drink the haterade.</div>
       <div class="bg-blue-200 border-t border-b border-darkBlue text-blue-700 px-4 py-3 mx-10 mb-10" role="alert">
         <p class="font-bold">Under Construction</p>
         <p class="text-sm">This site is fully functional but brand new and might undergo significant changes.</p>
