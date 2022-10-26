@@ -48,7 +48,7 @@ export default function Write() {
     };
     try {
       const res = await axios.post("/api/posts", newPost);
-      // window.location.replace("/post/" + res.data._id);
+      {/* window.location.replace("/post/" + res.data._id); */}
       navigate("/")
       console.log(res.data);
     } catch (err) {}

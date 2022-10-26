@@ -2,8 +2,6 @@ import './TipTap.css'
 import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import Underline from '@tiptap/extension-underline';
-import BulletList from '@tiptap/extension-bullet-list';
-import OrderedList from '@tiptap/extension-ordered-list';
 import Placeholder from '@tiptap/extension-placeholder';
 import {FaBold, FaItalic, FaUnderline, FaStrikethrough, FaCode, FaHeading, FaList, FaListOl, FaCodepen, FaListUl, FaQuoteLeft, FaRedo, FaUndo} from 'react-icons/fa'
 
