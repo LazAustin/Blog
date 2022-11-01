@@ -19,7 +19,7 @@ export default function Posts({ posts }) {
       {/* <div className="my-10 text-2xl font-serif ">Welcome to my blog! This is where I post all my commenhatery. Feel free to drink the haterade.</div> */}
       <div class="bg-blue-200 border border-darkBlue text-blue-700 px-4 py-3 mx-10 mb-10" role="alert">
         <p class="font-bold">Under Construction</p>
-        <p class="text-sm">This site is fully functional but brand new and might undergo significant changes.</p>
+        <p class="text-sm">Undergoing significant changes. Next up: Added a WYSIWYG text editor to the Write page for registered users, but still need to add it to the post edit functionality. Next, adding better error handling for logging in and updating settings. Then adding article tags. After this site has been up a while, I will add Next.js for better SEO, but I want to have a "slow opening" to work out the kinks.</p>
         <br/>
         <p class="font-bold">Employers</p>
         <p class="text-sm">If you are here to check out my work, feel free to sign in and out or play around (test account: "employer" pass: "Pword")</p>

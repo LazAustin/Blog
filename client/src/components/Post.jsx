@@ -10,7 +10,7 @@ export default function Post({ post }) {
   console.log(firstThreeSentences)
 
   const scrollPage = () => {
-    window.scrollTo(0, 100);
+    window.scrollTo(0, 0);
   }
 
 

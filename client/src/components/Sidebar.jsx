@@ -29,7 +29,7 @@ export default function Sidebar() {
             />
         </div>
         <p className="text-center">
-          Welcome to my blog! My name is Laz. I'm a software developer and wannabe commenhater on the side who likes to drink the haterade. Beware the commenhatery, once known as dialogue and free speech in times past, it may make your head explode if you don't like nuance or reason.
+          Welcome to my blog! My name is Laz. I'm a software developer and wannabe commenhater on the side who likes to drink the haterade. Beware the commenhatery . . . .
         </p>
       </div>
       <div className="flex flex-col items-center">

@@ -160,7 +160,7 @@ export default function SinglePost() {
             onChange={(e) => setDesc(e.target.value)}
           />
         ) : (
-          <p className="mt-6">{desc}</p>
+          <p className="mt-6 indent-10 ProseMirror">{desc}</p>
         )}
         {updateMode && (
           <div className="flex justify-center items-center mt-3">
