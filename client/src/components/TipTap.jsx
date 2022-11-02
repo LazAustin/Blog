@@ -3,9 +3,43 @@ import { EditorContent, useEditor } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import Underline from '@tiptap/extension-underline';
 import Placeholder from '@tiptap/extension-placeholder';
-import {FaBold, FaItalic, FaUnderline, FaStrikethrough, FaCode, FaHeading, FaList, FaListOl, FaCodepen, FaListUl, FaQuoteLeft, FaRedo, FaUndo} from 'react-icons/fa'
+import Youtube from '@tiptap/extension-youtube'
+import Link from '@tiptap/extension-link'
+import {FaBold, FaItalic, FaUnderline, FaStrikethrough, FaCode, FaHeading, FaList, FaListOl, FaCodepen, FaListUl, FaQuoteLeft, FaYoutube, FaLink, FaUnlink, FaRedo, FaUndo} from 'react-icons/fa'
+import { useEffect, useRef, useCallback } from 'react';
 
 const MenuBar = ({ editor }) => {
+
+  const addYoutubeVideo = () => {
+    const url = prompt('Enter YouTube URL')
+
+    editor.commands.setYoutubeVideo({
+      src: url,
+    })
+  }
+
+  const setLink = useCallback(() => {
+    const previousUrl = editor.getAttributes('link').href
+    const url = window.prompt('URL', previousUrl)
+
+    // cancelled
+    if (url === null) {
+      return
+    }
+
+    // empty
+    if (url === '') {
+      editor.chain().focus().extendMarkRange('link').unsetLink()
+        .run()
+
+      return
+    }
+
+    // update link
+    editor.chain().focus().extendMarkRange('link').setLink({ href: url })
+      .run()
+  }, [editor])
+
   if (!editor) {
     return null
   }
@@ -15,7 +49,8 @@ const MenuBar = ({ editor }) => {
       <div className='flex items-center justify-between'>
         <button
             type='button'
-            onClick={() => editor.chain().focus().toggleBold().run()}     
+            onClick={() => editor.chain().focus().toggleBold().run()}
+            title='Bold'
             disabled={
             !editor.can()
                 .chain()
@@ -23,13 +58,14 @@ const MenuBar = ({ editor }) => {
                 .toggleBold()
                 .run()
             }
-            className={editor.isActive('bold') ? 'is-active' : ''}
+            className={`${editor.isActive('bold') ? 'is-active' : ''}`}
         >
             <FaBold/>
         </button>
         <button
             type='button'
             onClick={() => editor.chain().focus().toggleItalic().run()}
+            title="Italic"
             disabled={
             !editor.can()
                 .chain()
@@ -44,6 +80,7 @@ const MenuBar = ({ editor }) => {
         <button
             type='button'
             onClick={() => editor.chain().focus().toggleUnderline().run()}
+            title="Underline"
             disabled={
             !editor.can()
                 .chain()
@@ -58,6 +95,7 @@ const MenuBar = ({ editor }) => {
         <button
             type='button'
             onClick={() => editor.chain().focus().toggleStrike().run()}
+            title='Strikethrough'
             disabled={
             !editor.can()
                 .chain()
@@ -72,6 +110,7 @@ const MenuBar = ({ editor }) => {
         <button
             type='button'
             onClick={() => editor.chain().focus().toggleCode().run()}
+            title="Code"
             disabled={
             !editor.can()
                 .chain()
@@ -86,6 +125,7 @@ const MenuBar = ({ editor }) => {
         <button
             type='button'
             onClick={() => editor.chain().focus().toggleCodeBlock().run()}
+            title="Codepen"
             className={editor.isActive('codeBlock') ? 'is-active' : ''}
         >
             <FaCodepen />
@@ -93,6 +133,7 @@ const MenuBar = ({ editor }) => {
         <button
             type='button'
             onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
+            title="Heading"
             className={editor.isActive('heading', { level: 1 }) ? 'is-active' : ''}
         >
             <FaHeading />
@@ -131,6 +172,7 @@ const MenuBar = ({ editor }) => {
         <button
             type='button'
             onClick={() => editor.chain().focus().toggleBulletList().run()}
+            title="Bulleted List"
             className={editor.isActive('bulletList') ? 'is-active' : ''}
         >
             <FaList />
@@ -138,6 +180,7 @@ const MenuBar = ({ editor }) => {
         <button
             type='button'
             onClick={() => editor.chain().focus().toggleOrderedList().run()}
+            title="Numbered List"
             className={editor.isActive('orderedList') ? 'is-active' : ''}
         >
             <FaListOl />
@@ -145,9 +188,32 @@ const MenuBar = ({ editor }) => {
         <button
             type='button'
             onClick={() => editor.chain().focus().toggleBlockquote().run()}
+            title="Block Quote"
             className={editor.isActive('blockquote') ? 'is-active' : ''}
         >
             <FaQuoteLeft />
+        </button>
+        <button 
+            id="add" 
+            title='Youtube'
+            onClick={addYoutubeVideo}
+            className=""
+            >
+            <FaYoutube />
+        </button>
+        <button 
+            onClick={setLink}
+            title="Link"
+            className={editor.isActive('link') ? 'is-active' : ''}
+            >
+            <FaLink />
+        </button>
+        <button 
+            onClick={() => editor.chain().focus().unsetLink().run()}
+            title="Unlink"
+            disabled={!editor.isActive('link')}
+            >
+            <FaUnlink />
         </button>
         {/* <button onClick={() => editor.chain().focus().setHorizontalRule().run()}>
             horizontal rule
@@ -160,6 +226,7 @@ const MenuBar = ({ editor }) => {
         <button
             type='button'
             onClick={() => editor.chain().focus().undo().run()}
+            title="Redo"
             disabled={
             !editor.can()
                 .chain()
@@ -173,6 +240,7 @@ const MenuBar = ({ editor }) => {
         <button
             type='button'
             onClick={() => editor.chain().focus().redo().run()}
+            title="Undo"
             disabled={
             !editor.can()
                 .chain()
@@ -193,6 +261,8 @@ const TipTap = ({setDesc}) => {
     extensions: [
       StarterKit, 
       Underline,
+      Youtube,
+      Link,
       Placeholder.configure({
         placeholder: 'Write something …',
       }),

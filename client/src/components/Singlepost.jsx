@@ -75,7 +75,7 @@ export default function SinglePost() {
   };
 
   return (
-    <div className="flex rounded">
+    <div id="singlePost" className="flex rounded">
       <div className="w-full flex flex-col space-y-3 bg-white rounded-lg shadow-default py-10 px-8">
 
         {/* Title and edit/delete buttons */}

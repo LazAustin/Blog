@@ -42,8 +42,8 @@ export default function Navbar() {
               <Link to="/"><img src={logo} alt="" className="h-20" /></Link>
             </div>
             <div className="text-2xl font-mono mb-4 mt-3">
-              The<span class=" ml-3 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-yellow-400 relative inline-block">
-                    <span class="relative text-blue-900">Commenhater</span>
+              The<span className=" ml-3 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-yellow-400 relative inline-block">
+                    <span className="relative text-blue-900">Commenhater</span>
                   </span>
             </div>
             {/* <div className="flex-col">

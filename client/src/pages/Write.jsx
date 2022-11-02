@@ -52,11 +52,12 @@ export default function Write() {
       navigate("/")
       console.log(res.data);
     } catch (err) {}
+
   };
 
 
   return (
-    <div className="w-full flex mx-auto">
+    <div id="" className="w-full flex mx-auto">
       <div className="w-full bg-white rounded-md border border-primaryBorder shadow-default py-10 px-8 m-8">
       {/* {file && (
         <img className="" src={URL.createObjectURL(file)} alt="" />
@@ -111,7 +112,7 @@ export default function Write() {
           <h1 className="flex text-2xl font-extrabold uppercase">
             {title}
           </h1>
-          <p className="ProseMirror border-0">{parser(desc)}</p>
+          <p className="ProseMirror border-0 indent-10">{parser(desc)}</p>
       </div>
       </div>
     </div>

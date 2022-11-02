@@ -3,16 +3,12 @@ import parser from 'html-react-parser'
 
 export default function Post({ post }) {
 
-  console.log(post);
-
-  const firstThreeSentences = post.desc.split(".", 3).join() + "...";
-
-  console.log(firstThreeSentences)
+  const filteredPost = post.desc.substring(post.desc.indexOf('</iframe>' + 9))
+  const firstThreeSentences = filteredPost.split(".", 3).join(".") + "...";
 
   const scrollPage = () => {
     window.scrollTo(0, 0);
   }
-
 
   return (
     <div className="rounded-lg bg-white my-6 px-8 py-3 pb-6 border shadow shadow-yellow-400/25">
