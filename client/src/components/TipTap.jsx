@@ -8,7 +8,9 @@ import Link from '@tiptap/extension-link'
 import {FaBold, FaItalic, FaUnderline, FaStrikethrough, FaCode, FaHeading, FaList, FaListOl, FaCodepen, FaListUl, FaQuoteLeft, FaYoutube, FaLink, FaUnlink, FaRedo, FaUndo} from 'react-icons/fa'
 import { useEffect, useRef, useCallback } from 'react';
 
+
 const MenuBar = ({ editor }) => {
+
 
   const addYoutubeVideo = () => {
     const url = prompt('Enter YouTube URL')
