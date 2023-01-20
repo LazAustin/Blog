@@ -77,8 +77,7 @@ export default function Navbar() {
         <div className="md:hidden">
           <div id='menu' className={`absolute flex-col items-center self-end py-8 mt-10 space-y-6 font-bold bg-yellow-500 rounded-xl ${isOpen ? "flex" : "hidden"} sm:w-auto sm:self-center left-6 right-6 drop-shadow-md z-10`}>
             <Link to="/" onClick={toggle} className="hover:text-blue-900 font-bold">Home</Link>
-            <Link to="#" onClick={toggle} className="hover:text-blue-900 font-bold">About</Link>
-            <Link to="#" onClick={toggle} className="hover:text-blue-900 font-bold">Contact</Link>
+            <Link to="/about" onClick={toggle} className="hover:text-blue-900 font-bold">About</Link>
             <Link to="/settings" onClick={toggle} className="hover:text-blue-900 font-bold">Settings</Link>
             <Link to="/write" onClick={toggle} className={`hover:text-blue-900 font-bold ${!user ? "hidden" : ""}`}>Write</Link>
             <Link to="/login" onClick={toggle} className={` rounded-xl baseline p-3 mx- pt-2 text-white  font-bold ${user ? "hidden" : ""}`}>Login</Link>
