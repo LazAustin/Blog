@@ -8,9 +8,7 @@ import Link from '@tiptap/extension-link'
 import {FaBold, FaItalic, FaUnderline, FaStrikethrough, FaCode, FaHeading, FaList, FaListOl, FaCodepen, FaListUl, FaQuoteLeft, FaYoutube, FaLink, FaUnlink, FaRedo, FaUndo} from 'react-icons/fa'
 import { useEffect, useRef, useCallback } from 'react';
 
-
 const MenuBar = ({ editor }) => {
-
 
   const addYoutubeVideo = () => {
     const url = prompt('Enter YouTube URL')
@@ -23,20 +21,16 @@ const MenuBar = ({ editor }) => {
   const setLink = useCallback(() => {
     const previousUrl = editor.getAttributes('link').href
     const url = window.prompt('URL', previousUrl)
-
     // cancelled
     if (url === null) {
       return
     }
-
     // empty
     if (url === '') {
       editor.chain().focus().extendMarkRange('link').unsetLink()
         .run()
-
       return
     }
-
     // update link
     editor.chain().focus().extendMarkRange('link').setLink({ href: url })
       .run()
