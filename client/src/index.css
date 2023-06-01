@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hamburger {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    transition: all 0.25s;
+    position: relative;    
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.25s;
+    background: white;
+}
+
+.hamburger-middle {
+    transform: translateY(7px);
+}
+
+.hamburger-bottom {
+    transform: translateY(14px);
+}
+
+.open {
+    transform: rotate(90deg);
+    transform: translateY(0px);
+}
+
+.open .hamburger-top {
+    transform: rotate(45deg) translateY(6px) translate(6px);
+}
+
+.open .hamburger-middle {
+    display: none;
+}
+
+.open .hamburger-bottom {
+    transform: rotate(-45deg) translateY(6px) translate(-6px);
+}
+
+.post-text {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.paginationButtons {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.paginationButtons a {
+    padding: 10px;
+    margin: 8px;
+    border-radius: 5px;
+    border: 1px solid darkBlue;
+    color: darkBlue;
+}
+
+.paginationButtons a:hover {
+    color: white;
+    background-color: darkBlue;
+}
+
+.paginationActive a {
+    color: white;
+    background-color: darkBlue;
+}
+
+body {
+    background: white;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+    color: #adb5bd;
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    pointer-events: none;
+  }

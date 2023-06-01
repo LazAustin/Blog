@@ -1,0 +1,7 @@
+.env
+/node_modules
+node_modules
+/client/node_modules
+client/node_modulesgit rm -r --cached node_modules
+/notes
+notes
