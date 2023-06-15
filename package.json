@@ -23,7 +23,8 @@
     "start": "nodemon index.js",
     "client": "cd client && npm start",
     "build": "cd client && npm run build",
-    "install-client": "cd client && npm install"
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build"
   },
   "proxy": "http://localhost:5000",
   "author": "Laz Austin",
