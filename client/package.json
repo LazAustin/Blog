@@ -30,9 +30,9 @@
     "react-scripts": "^5.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts build",
-    "test": "react-scriptstest",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -63,6 +63,7 @@
   "license": "ISC",
   "proxy": "http://localhost:5000",
   "devDependencies": {
+    "@svgr/webpack": "^8.0.1",
     "tailwindcss": "^3.3.3"
   }
 }

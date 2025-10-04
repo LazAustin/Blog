@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import parser from 'html-react-parser'
+import parser from 'html-react-parser';
+import React from "react";
 
 export default function Post({ post }) {
 
